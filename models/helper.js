@@ -15,5 +15,9 @@ class Helper{
 		}
 	}
 
+	async userNameCheck (username){
+		return await this.db.query(`SELECT * FROM user WHERE LOWER(username) = ?`, `${username}`);
+	}
+
 }
 module.exports = new Helper();
